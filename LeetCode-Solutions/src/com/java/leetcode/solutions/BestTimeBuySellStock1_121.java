@@ -9,6 +9,19 @@ public class BestTimeBuySellStock1_121 {
 	
 	public static int maxProfit(int[] prices) {
 		int maxProfit = 0;
+		int minPrice = prices[0];
+		
+        for(int price : prices){
+            minPrice = Math.min(minPrice, price);
+            maxProfit = Math.max(maxProfit, price-minPrice);
+        }
+        
+        return maxProfit;
+    }
+	
+	
+	/*public static int maxProfit(int[] prices) {
+		int maxProfit = 0;
 		for(int i=0; i<prices.length; i++) {
 			for(int j=i+1; j<prices.length && prices[j] > prices[i]; j++) {
 				int profit = prices[j] - prices[i];
@@ -18,16 +31,6 @@ public class BestTimeBuySellStock1_121 {
 			}
 		}
 		return maxProfit;
-	}
-	
-	public int maxProfit(int[] prices, int n) {
-		int maxProfit = 0;
-		int minPrice = prices[0];
-        for(int price : prices){
-            minPrice = Math.min(minPrice, price);
-            maxProfit = Math.max(maxProfit, price-minPrice);
-        }
-        return maxProfit;
-    }
+	}*/
 
 }
