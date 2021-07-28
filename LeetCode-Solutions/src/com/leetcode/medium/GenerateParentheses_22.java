@@ -10,18 +10,52 @@ public class GenerateParentheses_22 {
 		System.out.println(generateParenthesis(n));
 	}
 	
-	
-	// Backtracking Approach
+	// Recursion
 	public static List<String> generateParenthesis(int n) {
 		List<String> list = new ArrayList<>();
-		backtrack(list, "", 0, 0, n);
+		int open = n;
+		int close = n;
+		
+		solve(open, close, "", list);
+		
 		return list;
 	}
 	
-	// Backtracking template ;)
-	public static void backtrack(List<String> list, String str, int open, int close, int max) {
-		// System.out.println("str = "+str);
+	// Recursion method - Extended ip op method
+	private static void solve(int open, int close, String op, List<String> list) {
+		if(open == 0 && close == 0) {
+			list.add(op);
+			return;
+		}
 		
+		if(open > 0) {
+			// Open Parenthses
+			String op1 = op;
+			op1 += "(";
+			
+			solve(open-1, close, op1, list);
+		}
+		
+		if(close > open) {
+			String op1 = op;
+			op1 += ")";
+			
+			solve(open, close-1, op1, list);
+		}
+	}
+	
+	
+	
+	
+	// Backtracking Approach
+	/*public static List<String> generateParenthesis(int n) {
+		List<String> list = new ArrayList<>();
+		backtrack(list, "", 0, 0, n);
+		return list;
+	}*/
+	
+	// Backtracking template ;)
+	/*public static void backtrack(List<String> list, String str, int open, int close, int max) {
 		// Bounding function / condition
 		if(str.length() == max*2) {
 			list.add(str);
@@ -35,6 +69,6 @@ public class GenerateParentheses_22 {
 		if(close < open) {
 			backtrack(list, str+")", open, close+1, max);
 		}
-	}
+	}*/
 
 }
