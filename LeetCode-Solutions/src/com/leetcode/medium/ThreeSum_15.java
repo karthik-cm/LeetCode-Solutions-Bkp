@@ -9,17 +9,14 @@ import java.util.Set;
 public class ThreeSum_15 {
 
 	public static void main(String[] args) {
-		// [-1,0,1,2,-1,-4]
+		int nums[] = {-1,0,1,2,-1,-4};
 		
-		int arr[] = {1,2,3};
-		int arr2[] = new int[arr.length];
-		System.arraycopy(arr, 0, arr2, 0, arr.length-1);
-		// System.out.println(Arrays.toString(arr2));
+		System.out.println(threeSum(nums));
 	}
 	
-	public List<List<Integer>> threeSum(int[] nums) {
+	public static List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> set = new HashSet<>();
-        if(nums.length == 0) {
+        if(nums.length < 3) {
         	return new ArrayList<>(set);
         }
         
@@ -28,24 +25,25 @@ public class ThreeSum_15 {
         // [-1,0,1,2,-1,-4]
         // [-4,-1,-1,0,1,2]
         
-        for(int i=0; i<nums.length-2; i++){
-           int j = i+1;
-           int k = nums.length-1;
+        for(int i=0; i<nums.length-1; i++){
+           int low = i+1;
+           int high = nums.length-1;
            
-           while(j < k){
-        	   int sum = nums[i] + nums[j] + nums[k];
+           while(low < high){
+        	   int sum = nums[i] + nums[low] + nums[high];
         	   
                if(sum == 0) {
-            	   set.add(Arrays.asList(nums[i],nums[j++],nums[k--]));
+            	   set.add(Arrays.asList(nums[i], nums[low++], nums[high--]));
                }
-               else if (sum > 0) {
-            	   k--;
+               else if(sum > 0) {
+            	   high--;
                }
                else if(sum < 0) {
-            	   j++;
+            	   low++;
                }
             }
         }
+        
         return new ArrayList<>(set);
     }
 
