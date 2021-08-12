@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 
 public class PowerfulInteger_970 {
+	
+	// Powerful Integers : x^i + y^j <= bound
 
 	public static void main(String[] args) {
 		
