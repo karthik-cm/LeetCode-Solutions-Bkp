@@ -1,6 +1,6 @@
 package com.leetcode.medium;
 
-public class SimilarSentences_1813 {
+public class SentenceSimilarityIII_1813 {
 
 	public static void main(String[] args) {
 		// String sentence1 = "My name is Haley";

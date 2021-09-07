@@ -1,6 +1,6 @@
 package com.leetcode.medium;
 
-public class MaxLengthOfRepeatedSubarry_718 {
+public class MaximumLengthOfRepeatedSubarry_718 {
 
 	public static void main(String[] args) {
 		// A: [1,2,3,2,1]

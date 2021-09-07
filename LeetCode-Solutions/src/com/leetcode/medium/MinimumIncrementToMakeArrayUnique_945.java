@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class MinIncrementToMakeArrayUnique_945 {
+public class MinimumIncrementToMakeArrayUnique_945 {
 
 	public static void main(String[] args) {
 		int nums[] = {3,2,1,2,1,7};

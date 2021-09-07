@@ -3,7 +3,7 @@ package com.leetcode.medium;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PredictPartyVictory {
+public class Dota2Senate_649 {
 	private static final String RADIANT_SENATOR = "R";
 	private static final String DIRE_SENATOR = "D";
 

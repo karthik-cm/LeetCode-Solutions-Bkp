@@ -2,7 +2,7 @@ package com.leetcode.medium;
 
 import java.util.Stack;
 
-public class MinAddToMakeParenthesesValid_921 {
+public class MinimumAddToMakeParenthesesValid_921 {
 
 	public static void main(String[] args) {
 
