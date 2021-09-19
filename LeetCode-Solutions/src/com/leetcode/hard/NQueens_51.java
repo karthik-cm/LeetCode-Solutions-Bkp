@@ -9,7 +9,7 @@ public class NQueens_51 {
 	private static List<List<String>> result = new ArrayList<>();
 	
 	public static void main(String[] args) {
-		int n = 1;
+		int n = 4;
 		System.out.println(solveNQueens(n));
 	}
 	

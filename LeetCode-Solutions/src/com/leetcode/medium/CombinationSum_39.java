@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CombinationSum_39 {
+	// Sum of Subsets problem
 	
 	public static void main(String[] args) {
 		// [2, 3, 6, 7] && target = 7
@@ -19,6 +20,8 @@ public class CombinationSum_39 {
         return finalList;
     }
     
+	
+	// Backtracking - DFS
     public static void dfs(int start, int target, int sum, int candidates[], List<Integer> list, List<List<Integer>> finalList){
         if(sum == target){
             finalList.add(new ArrayList<Integer>(list));
@@ -33,39 +36,5 @@ public class CombinationSum_39 {
             list.remove(list.size()-1);
         }
     }
-	
-	
-	
-	/*public List<List<Integer>> combinationSum(int[] candidates, int target) {
-		List<List<Integer>> finalList = new ArrayList<>(); 
-		int len = candidates.length;
-		
-		if(len > 0 && target > 0) {
-			List<Integer> list = new ArrayList<>();
-			
-			for(int i=0; i<len; i++) {
-				int element = candidates[i];
-				
-				if(target % element == 0) {
-					list = getElementList(list, element, target/element);
-					finalList.add(list);
-				}
-			}
-			
-			for(int i=0; i<len; i++) {
-				for(int j=i+1; j<len; j++) {
-					
-				}
-			}
-		}
-		
-		return finalList;
-    }
-	
-	private static List<Integer> getElementList(List<Integer> list, int element, int times){
-		for(int i=0; i<times; i++) {
-			list.add(element);
-		}
-		return list;
-	}*/
+    
 }
