@@ -1,6 +1,7 @@
 package com.leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Subsets_78 {
@@ -12,7 +13,25 @@ public class Subsets_78 {
 	
 	
 	// Backtracking - DFS
-    public static List<List<Integer>> subsets(int[] nums) {
+	public static List<List<Integer>> subsets(int[] nums) {
+		List<List<Integer>> list = new ArrayList<>();
+		Arrays.sort(nums);
+		backtrack(0, nums, new ArrayList<Integer>(), list);
+		return list;
+	}
+
+	private static void backtrack(int start, int[] nums, ArrayList<Integer> temp, List<List<Integer>> list) {
+		list.add(new ArrayList<>(temp));
+		
+		for(int i=start; i<nums.length; i++) {
+			temp.add(nums[i]);
+			backtrack(i+1, nums, temp, list);
+			temp.remove(temp.size()-1);
+		}
+	}
+	
+	
+    /*public static List<List<Integer>> subsets(int[] nums) {
     	List<List<Integer>> finalList = new ArrayList<>();
     	for(int size=0; size<=nums.length; size++){
             backtrack(0, size, nums, new ArrayList<Integer>(), finalList);
@@ -31,30 +50,7 @@ public class Subsets_78 {
             backtrack(i+1, size, nums, tempList, finalList);
             tempList.remove(tempList.size()-1);
         }
-	
-    }
+    }*/
 	
     
-    
-	/*public static List<List<Integer>> subsets(int[] nums) {
-		List<List<Integer>> finalList = new ArrayList<>();
-	    finalList.add(new ArrayList<Integer>());
-
-	    for(int num : nums) {
-	    	List<List<Integer>> subsetsList = new ArrayList<>();
-	      
-	    	for(List<Integer> list : finalList) {
-	    		List<Integer> tempList = new ArrayList<Integer>(list);
-	    		tempList.add(num);
-	    		subsetsList.add(tempList);
-	    	}
-	      
-	    	for(List<Integer> list : subsetsList) {
-	    		finalList.add(list);
-	    	}
-	    }
-	    
-	    return finalList;
-	}*/
-
 }
