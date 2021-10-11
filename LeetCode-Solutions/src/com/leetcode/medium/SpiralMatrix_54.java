@@ -6,11 +6,66 @@ import java.util.List;
 public class SpiralMatrix_54 {
 
 	public static void main(String[] args) {
+		int[][] matrix = {
+			{1, 2, 3},
+			{4, 5, 6},
+			{7, 8, 9}
+		};
 		
+		System.out.println(spiralOrder(matrix));
 	}
+	
+	public static List<Integer> spiralOrder(int[][] matrix) {
+		List<Integer> list = new ArrayList<>();
+		
+		int rowBegin = 0;
+		int rowEnd = matrix.length-1;
+		int colBegin = 0;
+		int colEnd = matrix[0].length-1;
+		
+		while(rowBegin <= rowEnd && colBegin <= colEnd) {
+			
+			// Go right : same row, different column 
+			for(int i=colBegin; i<=colEnd; i++) {
+				list.add(matrix[rowBegin][i]);
+			}
+			rowBegin++;
+			
+			
+			// Go down : same column, different row
+			for(int i=rowBegin; i<=rowEnd; i++) {
+				list.add(matrix[i][colEnd]);
+			}
+			colEnd--;
+			
+			
+			if(rowBegin <= rowEnd) {
+				// Go left : same row,  different column
+				for(int i=colEnd; i>=colBegin; i--) {
+					list.add(matrix[rowEnd][i]);
+				}
+			}
+			rowEnd--;
+			
+			
+			if(colBegin <= colEnd) {
+				// Go up : same column, different row
+				for(int i=rowEnd; i>=rowBegin; i--) {
+					list.add(matrix[i][colBegin]);
+				}
+			}
+			colBegin++;
+			
+		}
+		
+		return list;
+	}
+	
+	
+	
 		
 	
-	public List<Integer> spiralOrder(int[][] matrix) {
+	/*public List<Integer> spiralOrder(int[][] matrix) {
 		List<Integer> result = new ArrayList<>();
 		int rows = matrix.length;
 		int columns = matrix[0].length;
@@ -53,5 +108,5 @@ public class SpiralMatrix_54 {
 		}
 
 		return result;
-	}
+	}*/
 }

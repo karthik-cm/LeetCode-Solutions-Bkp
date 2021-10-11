@@ -9,7 +9,33 @@ public class PlusOne_66 {
 		System.out.println(Arrays.toString(plusOne(digits)));
 	}
 	
+	
 	public static int[] plusOne(int[] digits) {
+		int carry = 1;
+		
+	    for(int i=digits.length-1; i>= 0; i--) {
+	        digits[i] += carry; // max_value of digits[i] can be 10
+	        
+	        if (digits[i] <= 9) { // early return 
+	            return digits;
+	        }
+	        
+	        digits[i] = 0;
+	    }
+	    
+	    int[] ans = new int[digits.length+1]; // ex: 99+1
+	    ans[0] = 1;
+	    return ans;
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	/*public static int[] plusOne(int[] digits) {
 		for(int i=digits.length-1; i>=0; i--){
             if(digits[i] == 9){
                 if(i == 0){
@@ -28,27 +54,6 @@ public class PlusOne_66 {
         }
 
         return digits;
-    }
+    }*/
 	
-	
-	/*int carry = 0;
-	
-	for(int i=digits.length-1; i>=0; i--) {
-		int value = digits[i];
-		value = (i==digits.length-1) ? value + 1 : value + carry;
-		System.out.println(value);
-		
-		if(value > 9) {
-			int newValue = value % 10;
-			carry = value / 10;
-			digits[i] = newValue;
-			
-		}
-		else {
-			digits[i] = value;
-			break;
-		}
-	}
-	
-	return digits;*/
 }

@@ -1,18 +1,36 @@
 package com.leetcode.medium;
 
+import java.util.Arrays;
+
 public class RotateImage_48 {
 
 	public static void main(String[] args) {
+		int[][] matrix = {
+			{1,2,3}, 
+			{4,5,6},
+			{7,8,9}
+		};
 		
+		System.out.println("Original Matrix : ");
+		print(matrix);
+		
+		rotate(matrix);
 	}
 	
 	
-	public void rotate(int[][] matrix) {
+	public static void rotate(int[][] matrix) {
         transpose(matrix);
-		reflect(matrix);
+        System.out.println("After Transpose Matrix : ");
+		print(matrix);
+		
+		reflect(matrix); // reverse(matrix)
+		System.out.println("Reflect Matrix : ");
+		print(matrix);
     }
     
-    private void transpose(int [][] matrix) {
+	
+	// Transpose - change rows to columns
+    private static void transpose(int[][] matrix) {
 		int n = matrix.length;
 		
 		for(int i=0; i<n; i++) {
@@ -24,7 +42,8 @@ public class RotateImage_48 {
 		}
 	}
 	
-	private void reflect(int[][] matrix) {
+    // Reflect - reverse the matrix row wise
+	private static void reflect(int[][] matrix) {
 		int n = matrix.length;
 		
 		for(int i=0; i<n; i++) {
@@ -44,4 +63,11 @@ public class RotateImage_48 {
 		}
 	}
 
+	
+	
+	private static void print(int[][] matrix) {
+		for(int i=0; i<matrix.length; i++) {
+			System.out.println(Arrays.toString(matrix[i]));
+		}
+	}
 }

@@ -3,12 +3,15 @@ package com.leetcode.medium;
 public class SearchInRotatedSortedArray_33 {
 
 	public static void main(String[] args) {
+		int nums[] = {4,5,6,7,0,1,2};
+		int target = 2;
 		
+		System.out.println(search(nums, target));
 	}
 	
 	
 	// Binary Search (variant)
-	public int search(int[] nums, int target) {
+	public static int search(int[] nums, int target) {
         int low = 0;
 		int high = nums.length-1;
 		
@@ -28,7 +31,7 @@ public class SearchInRotatedSortedArray_33 {
 			}
 			else {
 				if(target > nums[mid] && target <= nums[high]) {
-					low=mid+1;
+					low = mid+1;
 				}
 				else {
 					high = mid-1;
