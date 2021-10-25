@@ -14,21 +14,24 @@ public class Subsets_78 {
 	
 	// Backtracking - DFS
 	public static List<List<Integer>> subsets(int[] nums) {
-		List<List<Integer>> list = new ArrayList<>();
+		List<List<Integer>> result = new ArrayList<>();
 		Arrays.sort(nums);
-		backtrack(0, nums, new ArrayList<Integer>(), list);
-		return list;
+		backtrack(0, nums, new ArrayList<Integer>(), result);
+		return result;
 	}
 
-	private static void backtrack(int start, int[] nums, ArrayList<Integer> temp, List<List<Integer>> list) {
-		list.add(new ArrayList<>(temp));
+	private static void backtrack(int start, int[] nums, ArrayList<Integer> list, List<List<Integer>> result) {
+		result.add(new ArrayList<>(list));
 		
 		for(int i=start; i<nums.length; i++) {
-			temp.add(nums[i]);
-			backtrack(i+1, nums, temp, list);
-			temp.remove(temp.size()-1);
+			list.add(nums[i]);
+			backtrack(i+1, nums, list, result);
+			list.remove(list.size()-1);
 		}
 	}
+	
+	
+	
 	
 	
     /*public static List<List<Integer>> subsets(int[] nums) {
